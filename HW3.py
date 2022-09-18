@@ -49,11 +49,13 @@ class Fortune_Teller:
     # returns the fortune from get_fortune
             return self.get_fortune(self)
 
-
-    
-    
-
     # create the print_questions_history method
+    def print_questions_history(self):
+        if len(self.fortunes_history_list) == 0:
+            print("None yet")
+        else:
+            for index in range(len(self.questions_list)):
+                print(self.fortunes_history_list[index] + " " + self.questions_list[index] + " - " + self.fortunes_list[self.fortunes_history_list[index]])
     # prints "[answer index] question - answer" for each of the indices in the fortunes_history_list
     # from the first to the last with each on a separate line.  If there are no items in the
     # fortunes_history_list it prints "None yet"
