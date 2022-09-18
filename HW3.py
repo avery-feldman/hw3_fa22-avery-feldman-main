@@ -47,18 +47,18 @@ class Fortune_Teller:
         else:
             self.questions_list.append(question)
     # returns the fortune from get_fortune
-            return self.get_fortune(self)
+            return self.get_fortune()
 
     # create the print_questions_history method
     def print_questions_history(self):
+    # prints "[answer index] question - answer" for each of the indices in the fortunes_history_list
+    # from the first to the last with each on a separate line.  If there are no items in the
+    # fortunes_history_list it prints "None yet"
         if len(self.fortunes_history_list) == 0:
             print("None yet")
         else:
             for index in range(len(self.questions_list)):
-                print(self.fortunes_history_list[index] + " " + self.questions_list[index] + " - " + self.fortunes_list[self.fortunes_history_list[index]])
-    # prints "[answer index] question - answer" for each of the indices in the fortunes_history_list
-    # from the first to the last with each on a separate line.  If there are no items in the
-    # fortunes_history_list it prints "None yet"
+                print("[" + str(self.fortunes_history_list[index]) + "] " + self.questions_list[index] + " - " + self.fortunes_list[self.fortunes_history_list[index]])
     # it does not return anything!
 
     # EXTRA POINTS
@@ -84,6 +84,13 @@ def main():
     # get the first question or quit
 
     # loop while question is not "quit"
+    question = input("Ask question or type quit: ")
+    while question != "quit":
+        print(question + " - " + bot.question_check(question))
+        question = input("Ask question or type quit: ")
+
+
+        
 
         # get an answer from question_check
 
@@ -136,4 +143,4 @@ def test():
 # only run the main function if this file is being run (not imported)
 if __name__ == "__main__":
     main()
-    #test() TODO: Uncomment when you are ready to test your Fortune_Teller class
+    test() #Uncomment when you are ready to test your Fortune_Teller class
