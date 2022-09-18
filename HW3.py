@@ -10,8 +10,9 @@ import random
 # Create the class Fortune_Teller
 class Fortune_Teller:
     # create the constructor (__init__) method
-    def __init__(self, fortunes_list):
     # it takes as input: a list of possible answers
+
+    def __init__(self, fortunes_list):
     # it sets this object's fortunes_list (instance variable) to the passed list of possible answers
         self.fortunes_list = fortunes_list
    
@@ -25,6 +26,10 @@ class Fortune_Teller:
     # It should return a string with all the fortunes
     # in fortunes_list separated by commas
     # For example : "Yes, No, Not clear"
+    def __str__(self):
+        answer_str = ", ".join(self.fortunes_list)
+        return answer_str
+
 
     # create the get_fortune method
     # it randomly picks an index from 0 to the number of items in the fortunes_list minus one
