@@ -1,18 +1,25 @@
-﻿# Your name:
-# Your student id:
-# Your email:
+﻿# Your name: Avery Feldman
+# Your student id: 83844944
+# Your email: averylf@umich.edu
 # List who you have worked with on this homework:
 
 
 # import the random module for use in this program
+import random 
 
 # Create the class Fortune_Teller
+class Fortune_Teller:
     # create the constructor (__init__) method
+    def __init__(self, fortunes_list):
     # it takes as input: a list of possible answers
     # it sets this object's fortunes_list (instance variable) to the passed list of possible answers
+        self.fortunes_list = fortunes_list
+   
     # it sets this object's questions_list (instance variable) to an empty list
+        questions_list = []
+
     # it sets this object's fortunes_history_list (instance variable) to an empty list
-    
+        fortunes_history_list = []
 
     # create the __str__ method
     # It should return a string with all the fortunes
