@@ -17,10 +17,10 @@ class Fortune_Teller:
         self.fortunes_list = fortunes_list
    
     # it sets this object's questions_list (instance variable) to an empty list
-        questions_list = []
+        self.questions_list = []
 
     # it sets this object's fortunes_history_list (instance variable) to an empty list
-        fortunes_history_list = []
+        self.fortunes_history_list = []
 
     # create the __str__ method
     # It should return a string with all the fortunes
@@ -32,9 +32,13 @@ class Fortune_Teller:
 
 
     # create the get_fortune method
+    def get_fortune(self):   
     # it randomly picks an index from 0 to the number of items in the fortunes_list minus one
+        index = random.randint(0, len(self.fortunes_list)-1)
     # it adds that index to the end of the fortunes_history_list
+        self.fortunes_history_list.append(index)
     # it returns the answer at the picked index
+        return self.fortunes_list[index]
 
     # create the question_check method that takes a question
     # it checks if the question is in the questions_list and if so returns
