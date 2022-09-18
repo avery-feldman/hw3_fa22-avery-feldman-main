@@ -11,14 +11,11 @@ import random
 class Fortune_Teller:
     # create the constructor (__init__) method
     # it takes as input: a list of possible answers
-
     def __init__(self, fortunes_list):
     # it sets this object's fortunes_list (instance variable) to the passed list of possible answers
         self.fortunes_list = fortunes_list
-   
     # it sets this object's questions_list (instance variable) to an empty list
         self.questions_list = []
-
     # it sets this object's fortunes_history_list (instance variable) to an empty list
         self.fortunes_history_list = []
 
@@ -41,10 +38,20 @@ class Fortune_Teller:
         return self.fortunes_list[index]
 
     # create the question_check method that takes a question
+    def question_check(self, question):
     # it checks if the question is in the questions_list and if so returns
-    #         "I've already answered that question”
+    # "I've already answered that question”
+        if question in self.questions_list:
+            return "I've already answered that question"
     # Otherwise it adds the question to the questions_list and
+        else:
+            self.questions_list.append(question)
     # returns the fortune from get_fortune
+            return self.get_fortune(self)
+
+
+    
+    
 
     # create the print_questions_history method
     # prints "[answer index] question - answer" for each of the indices in the fortunes_history_list
