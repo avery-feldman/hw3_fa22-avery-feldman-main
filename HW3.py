@@ -67,16 +67,16 @@ class Fortune_Teller:
     #   a number, n. Ex: 200
     def most_common(self, number):
         # it generates a random response n times by calling get_fortune
-        questions_count = [["Yes", 0], ["No", 0], ["Ask again", 0], ["Maybe", 0], ["Not clear", 0]]
+        questions_count = [[self.fortunes_list[0], 0], [self.fortunes_list[1], 0], [self.fortunes_list[2], 0], [self.fortunes_list[3], 0], [self.fortunes_list[4], 0]]
         for x in range(number):
             answer = self.get_fortune() 
-            if answer == "Yes":
+            if answer == self.fortunes_list[0]:
                 questions_count[0][1] += 1
-            elif answer == "No":
+            elif answer == self.fortunes_list[1]:
                 questions_count[1][1] += 1
-            elif answer == "Ask again":
+            elif answer == self.fortunes_list[2]:
                 questions_count[2][1] += 1
-            elif answer == "Maybe":
+            elif answer == self.fortunes_list[3]:
                 questions_count[3][1] += 1
             else:
                 questions_count[4][1] += 1
