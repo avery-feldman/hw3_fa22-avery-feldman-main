@@ -81,8 +81,6 @@ class Fortune_Teller:
         print("The most frequent answer after " + str(number) + " was " + sorted_lst[0][0])
 
 
-    
-    
     # It prints the counts for each answer and
     # prints the most frequently occurring answer (Do not use a dictionary in this solution):
     #   Yes: 36
