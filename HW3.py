@@ -24,7 +24,7 @@ class Fortune_Teller:
     # in fortunes_list separated by commas
     # For example : "Yes, No, Not clear"
     def __str__(self):
-        answer_str = ", ".join(self.fortunes_list)
+        answer_str = str(self.fortunes_list)
         return answer_str
 
 
