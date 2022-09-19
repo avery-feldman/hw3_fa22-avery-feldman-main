@@ -65,7 +65,29 @@ class Fortune_Teller:
     # create the most_frequent method
     # it takes as input:
     #   a number, n. Ex: 200
-    # it generates a random response n times by calling get_fortune
+    def most_common(self, number):
+        # it generates a random response n times by calling get_fortune
+        questions_count = [["Yes", 0], ["No", 0], ["Ask again", 0], ["Maybe", 0], ["Not clear", 0]]
+        for x in range(number):
+            answer = self.get_fortune() 
+            if answer == "Yes":
+                questions_count[0][1] += 1
+            elif answer == "No":
+                questions_count[1][1] += 1
+            elif answer == "Ask again":
+                questions_count[2][1] += 1
+            elif answer == "Maybe":
+                questions_count[3][1] += 1
+            else:
+                questions_count[4][1] += 1
+        for lst in questions_count:
+            print(lst[0] + ": " + str(lst[1]))
+        sorted_lst = sorted(questions_count, key = lambda x : x[1], reverse = True)
+        print("The most frequent answer after 200 was " + sorted_lst[0][0])
+
+
+    
+    
     # It prints the counts for each answer and
     # prints the most frequently occurring answer (Do not use a dictionary in this solution):
     #   Yes: 36
@@ -84,19 +106,14 @@ def main():
     # get the first question or quit
 
     # loop while question is not "quit"
-    question = input("Ask question or type quit: ")
+    question = input("Ask a question or type quit: ")
     while question != "quit":
+        # get an answer from question_check
+        # print question - answer
         print(question + " - " + bot.question_check(question))
+        # get the next question or quit 
         question = input("Ask question or type quit: ")
 
-
-        
-
-        # get an answer from question_check
-
-        # print question - answer
-
-        # get the next question or quit 
 
 def test():
 
@@ -136,8 +153,8 @@ def test():
 
     #EXTRA POINTS
     #Uncomment the lines below if you attempt the extra credit!
-    # print("Testing most_common method with 200 responses")
-    # bot2.most_common(200)
+    print("Testing most_common method with 200 responses")
+    bot2.most_common(200)
 
 
 # only run the main function if this file is being run (not imported)
