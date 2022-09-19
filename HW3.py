@@ -68,22 +68,17 @@ class Fortune_Teller:
     def most_common(self, number):
         # it generates a random response n times by calling get_fortune
         questions_count = [[self.fortunes_list[0], 0], [self.fortunes_list[1], 0], [self.fortunes_list[2], 0], [self.fortunes_list[3], 0], [self.fortunes_list[4], 0]]
+        self.fortunes_history_list = []
         for x in range(number):
-            answer = self.get_fortune() 
-            if answer == self.fortunes_list[0]:
-                questions_count[0][1] += 1
-            elif answer == self.fortunes_list[1]:
-                questions_count[1][1] += 1
-            elif answer == self.fortunes_list[2]:
-                questions_count[2][1] += 1
-            elif answer == self.fortunes_list[3]:
-                questions_count[3][1] += 1
-            else:
-                questions_count[4][1] += 1
+            self.get_fortune() 
+        
+        for answer in self.fortunes_history_list:
+                questions_count[answer][1] += 1
+
         for lst in questions_count:
             print(lst[0] + ": " + str(lst[1]))
         sorted_lst = sorted(questions_count, key = lambda x : x[1], reverse = True)
-        print("The most frequent answer after 200 was " + sorted_lst[0][0])
+        print("The most frequent answer after " + str(number) + " was " + sorted_lst[0][0])
 
 
     
